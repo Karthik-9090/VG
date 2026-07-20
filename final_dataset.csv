@@ -1,0 +1,4 @@
+city,aqi,pm25,pm10,no2,o3,so2,co,temperature,humidity,wind_speed,pressure,hour,day_of_week,month,recorded_at
+Bengaluru,82,,,,,,,,,,,20,0,6,2026-06-15 20:54:41.500201
+Chennai,68,,,,,,,,,,,20,0,6,2026-06-15 20:54:41.500201
+Hyderabad,95,,,,,,,,,,,20,0,6,2026-06-15 20:54:41.500201

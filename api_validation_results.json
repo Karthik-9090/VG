@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-06-16T03:13:54.761364",
+  "api_health": {
+    "error": "Expecting value: line 1 column 1 (char 0)"
+  },
+  "predictions": {
+    "Chennai": {
+      "status": "FAILED",
+      "error": "HTTP 404",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /forecast</pre>\n</body>\n</html>\n"
+    },
+    "Bengaluru": {
+      "status": "FAILED",
+      "error": "HTTP 404",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /forecast</pre>\n</body>\n</html>\n"
+    },
+    "Hyderabad": {
+      "status": "FAILED",
+      "error": "HTTP 404",
+      "response": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot POST /forecast</pre>\n</body>\n</html>\n"
+    }
+  },
+  "database_logs": {
+    "count": 0,
+    "predictions": []
+  }
+}

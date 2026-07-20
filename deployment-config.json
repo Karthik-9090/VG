@@ -1,0 +1,37 @@
+{
+  "deployment_date": "2026-06-15T12:39:55.332310",
+  "version": "2.0.0",
+  "services": {
+    "frontend": {
+      "port": 3000,
+      "status": "ready"
+    },
+    "backend": {
+      "port": 8000,
+      "database": "PostgreSQL",
+      "status": "ready"
+    },
+    "ml_service": {
+      "port": 8001,
+      "models": "Random Forest",
+      "data_source": "OpenAQ",
+      "status": "ready"
+    },
+    "scheduler": {
+      "data_ingestion": "Every 6 hours",
+      "model_retraining": "Every 24 hours",
+      "status": "ready"
+    }
+  },
+  "data_pipeline": {
+    "source": "OpenAQ API",
+    "update_frequency": "6 hours",
+    "cities": [
+      "Chennai",
+      "Bengaluru",
+      "Hyderabad",
+      "Mumbai",
+      "Delhi"
+    ]
+  }
+}

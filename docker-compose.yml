@@ -1,0 +1,200 @@
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: vayuguard-nginx
+    ports:
+      - '80:80'
+      - '443:443'
+    depends_on:
+      - backend
+      - ml-service
+      - frontend
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - vayuguard-net
+
+  postgres:
+    image: postgres:15
+    container_name: vayuguard-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: vayuguard
+      POSTGRES_USER: vayuguard_user
+      POSTGRES_PASSWORD: vayuguard_pass
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./infra/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./backups:/backups
+    ports:
+      - '5432:5432'
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vayuguard_user -d vayuguard"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - vayuguard-net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: vayuguard-backend
+    environment:
+      PORT: 5000
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: vayuguard
+      DB_USER: vayuguard_user
+      DB_PASSWORD: vayuguard_pass
+      JWT_SECRET: ${JWT_SECRET:-vayuguard-secret-change-in-production}
+      ML_SERVICE_URL: http://ml-service:8001
+      NODE_ENV: ${NODE_ENV:-production}
+      DB_POOL_MAX: 100
+      DB_POOL_MIN: 10
+    depends_on:
+      - postgres
+      - ml-service
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+    networks:
+      - vayuguard-net
+    expose:
+      - "5000"
+
+  ml-service:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    container_name: vayuguard-ml-service
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: vayuguard
+      DB_USER: vayuguard_user
+      DB_PASSWORD: vayuguard_pass
+    depends_on:
+      - postgres
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+    networks:
+      - vayuguard-net
+    expose:
+      - "8001"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://backend:5000/api
+    container_name: vayuguard-frontend
+    environment:
+      VITE_API_URL: http://backend:5000/api
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - vayuguard-net
+    expose:
+      - "80"
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: vayuguard-prometheus
+    ports:
+      - '9090:9090'
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    depends_on:
+      - backend
+      - ml-service
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=30d'
+    restart: unless-stopped
+    networks:
+      - vayuguard-net
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: vayuguard-grafana
+    ports:
+      - '3000:3000'
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GF_ADMIN_PASSWORD:-admin}
+      GF_USERS_ALLOW_SIGN_UP: 'false'
+      GF_DASHBOARDS_ENABLED: 'true'
+      GF_PROVISIONING_PATH: /etc/grafana/provisioning
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+    networks:
+      - vayuguard-net
+
+  data-pipeline:
+    build:
+      context: ./data-pipeline
+    image: vayuguard-data-pipeline:latest
+    container_name: vayuguard-data-pipeline
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./data-pipeline:/app:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PYTHONUNBUFFERED: '1'
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: vayuguard
+      DB_USER: vayuguard_user
+      DB_PASSWORD: vayuguard_pass
+      WAQI_API_KEY: ${WAQI_API_KEY:-}
+      CPCB_API_URL: ${CPCB_API_URL:-}
+      CPCB_API_KEY: ${CPCB_API_KEY:-}
+      INGEST_INTERVAL_MINUTES: ${INGEST_INTERVAL_MINUTES:-5}
+      INGEST_SOURCE: ${INGEST_SOURCE:-all}
+    command: ["python", "scheduler.py"]
+    networks:
+      - vayuguard-net
+
+volumes:
+  pgdata:
+    driver: local
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
+
+networks:
+  vayuguard-net:
+    driver: bridge

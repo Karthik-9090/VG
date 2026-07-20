@@ -1,0 +1,41 @@
+{
+  "best_model": "XGBoost",
+  "models": {
+    "Baseline": {
+      "train": {
+        "MAE": 12.16,
+        "RMSE": 14.98,
+        "MAPE": 16.24
+      },
+      "test": {
+        "MAE": 12.42,
+        "RMSE": 15.17,
+        "MAPE": 17.1
+      }
+    },
+    "Random Forest": {
+      "train": {
+        "MAE": 0.44,
+        "RMSE": 0.62,
+        "MAPE": 0.58
+      },
+      "test": {
+        "MAE": 0.88,
+        "RMSE": 1.2,
+        "MAPE": 1.17
+      }
+    },
+    "XGBoost": {
+      "train": {
+        "MAE": 0.36,
+        "RMSE": 0.46,
+        "MAPE": 0.48
+      },
+      "test": {
+        "MAE": 0.82,
+        "RMSE": 1.07,
+        "MAPE": 1.1
+      }
+    }
+  }
+}

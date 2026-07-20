@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-06-16T01:43:44.317906",
+  "training_rows": 4725,
+  "test_rows": 1182,
+  "feature_count": 16,
+  "features": [
+    "lag_1",
+    "lag_3",
+    "lag_6",
+    "lag_12",
+    "lag_24",
+    "rolling_mean_6",
+    "rolling_mean_12",
+    "rolling_mean_24",
+    "rolling_std_6",
+    "rolling_std_12",
+    "rolling_std_24",
+    "hour",
+    "day_of_week",
+    "month",
+    "quarter",
+    "day_of_month"
+  ],
+  "target": "aqi",
+  "split_method": "chronological",
+  "train_percentage": 80,
+  "test_percentage": 20,
+  "models": {
+    "Linear Regression": {
+      "mae": 69.07058172463039,
+      "rmse": 83.07238737770584,
+      "mape": 0.6829755876019913,
+      "r2": 0.245796631614847,
+      "training_time_seconds": 0.105093
+    },
+    "Random Forest": {
+      "mae": 71.65592527777122,
+      "rmse": 86.06419238468787,
+      "mape": 0.7094115906167253,
+      "r2": 0.19049398532399098,
+      "training_time_seconds": 1.237339
+    },
+    "XGBoost": {
+      "mae": 71.31527498732565,
+      "rmse": 85.98269268714827,
+      "mape": 0.6981215370543712,
+      "r2": 0.19202640562068407,
+      "training_time_seconds": 1.497869
+    }
+  },
+  "best_model": "Linear Regression",
+  "best_model_mae": 69.07058172463039
+}

@@ -1,0 +1,33 @@
+{
+  "total_rows": 5979,
+  "city_counts": {
+    "Bengaluru": 1993,
+    "Chennai": 1993,
+    "Hyderabad": 1993
+  },
+  "date_range": {
+    "min": "2019-01-01 00:00:00",
+    "max": "2024-06-15 00:00:00",
+    "days": 1992
+  },
+  "target_cities": {
+    "Chennai": {
+      "records": 1993,
+      "earliest": "2019-01-01 00:00:00",
+      "latest": "2024-06-15 00:00:00",
+      "avg_aqi": 188.95634721525337
+    },
+    "Bengaluru": {
+      "records": 1993,
+      "earliest": "2019-01-01 00:00:00",
+      "latest": "2024-06-15 00:00:00",
+      "avg_aqi": 191.42147516307074
+    },
+    "Hyderabad": {
+      "records": 1993,
+      "earliest": "2019-01-01 00:00:00",
+      "latest": "2024-06-15 00:00:00",
+      "avg_aqi": 187.35775213246362
+    }
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "timestamp": "2026-06-16T00:59:18.069363",
+  "dataset_name": "Indian AQI Trends and Health Risk 2019-2024",
+  "source": "Kaggle",
+  "url": "https://www.kaggle.com/datasets/divsmahesh/indian-aqi-trends-and-health-risk-20192024",
+  "audit_sections": {
+    "files": {
+      "CSV": "indian_aqi_health_impact_2019_2024.csv",
+      "XLSX": "Indian Urban Air Quality and Health Impact 2019-2024.xlsx",
+      "Notebook": "NOT FOUND"
+    },
+    "dimensions": {
+      "rows": 14001,
+      "columns": 17,
+      "memory_mb": 3.1379384994506836,
+      "shape": [
+        14001,
+        17
+      ]
+    },
+    "schema": [
+      {
+        "column": "Date",
+        "dtype": "object",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "City",
+        "dtype": "object",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "AQI",
+        "dtype": "int64",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "PM2.5",
+        "dtype": "float64",
+        "non_null": 13721,
+        "null": 280,
+        "null_percent": 2.0
+      },
+      {
+        "column": "PM10",
+        "dtype": "float64",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "NO2",
+        "dtype": "float64",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "SO2",
+        "dtype": "float64",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "CO",
+        "dtype": "float64",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "O3",
+        "dtype": "float64",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "Temperature",
+        "dtype": "float64",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "Humidity",
+        "dtype": "float64",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "Wind_Speed",
+        "dtype": "float64",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "Rainfall",
+        "dtype": "float64",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "Pressure",
+        "dtype": "float64",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "Vehicle_Count",
+        "dtype": "int64",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "Industrial_Activity_Index",
+        "dtype": "float64",
+        "non_null": 14001,
+        "null": 0,
+        "null_percent": 0.0
+      },
+      {
+        "column": "Health_Impact_Score",
+        "dtype": "float64",
+        "non_null": 13721,
+        "null": 280,
+        "null_percent": 2.0
+      }
+    ],
+    "dtype_summary": {
+      "float64": 13,
+      "object": 2,
+      "int64": 2
+    },
+    "cities": {
+      "total_unique": 7,
+      "city_column": "City",
+      "all_cities": [
+        "Ahmedabad",
+        "Bengaluru",
+        "Chennai",
+        "Delhi",
+        "Hyderabad",
+        "Mumbai",
+        "Pune"
+      ],
+      "target_cities_found": {
+        "Chennai": true,
+        "Bengaluru": true,
+        "Hyderabad": true
+      }
+    },
+    "date_range": {
+      "date_column": "Date",
+      "min_date": "2019-01-01 00:00:00",
+      "max_date": "2024-06-15 00:00:00",
+      "days_span": 1992,
+      "years_span": 5.46,
+      "null_dates": 0
+    },
+    "required_columns": {
+      "AQI": {
+        "column": "AQI",
+        "found": true,
+        "null_percent": 0.0
+      },
+      "PM2.5": {
+        "column": "PM2.5",
+        "found": true,
+        "null_percent": 2.0
+      },
+      "PM10": {
+        "column": "PM10",
+        "found": true,
+        "null_percent": 0.0
+      },
+      "NO2": {
+        "column": "NO2",
+        "found": true,
+        "null_percent": 0.0
+      },
+      "SO2": {
+        "column": "SO2",
+        "found": true,
+        "null_percent": 0.0
+      },
+      "CO": {
+        "column": "CO",
+        "found": true,
+        "null_percent": 0.0
+      }
+    },
+    "missing_values": [
+      {
+        "column": "PM2.5",
+        "null_count": 280,
+        "null_percent": 2.0
+      },
+      {
+        "column": "Health_Impact_Score",
+        "null_count": 280,
+        "null_percent": 2.0
+      }
+    ],
+    "duplicates": {
+      "total_duplicates": 50,
+      "duplicate_percent": 0.36
+    },
+    "quality_score": {
+      "overall": 99.85,
+      "rating": "[EXCELLENT] 5 STARS",
+      "factors": {
+        "completeness": 99.76,
+        "uniqueness": 99.64,
+        "date_coverage": 100,
+        "required_fields": 100.0
+      }
+    },
+    "vayuguard_suitability": {
+      "suitable": true,
+      "checklist": {
+        "target_cities_present": true,
+        "all_pollutants_present": true,
+        "date_range_sufficient": true,
+        "data_quality_sufficient": true,
+        "record_count_sufficient": true
+      }
+    },
+    "training_data": {
+      "total_records": 6001,
+      "per_city": {
+        "Chennai": 2001,
+        "Bengaluru": 2000,
+        "Hyderabad": 2000
+      },
+      "average_per_city": 2000.0
+    },
+    "preprocessing": [
+      "Handle missing values (imputation or removal)",
+      "Remove duplicate rows",
+      "Parse and standardize date column",
+      "Standardize column names (lowercase, remove spaces)",
+      "Detect and handle outliers in pollutant values",
+      "Convert 1 object columns to appropriate types",
+      "Create city-specific datasets for Chennai, Bengaluru, Hyderabad",
+      "Normalize/scale pollutant values for ML models"
+    ]
+  },
+  "final_recommendation": {
+    "proceed_with_integration": true,
+    "quality_score": 99.85,
+    "expected_training_records": 6001,
+    "preprocessing_effort": "Medium",
+    "summary": "Dataset is suitable for VayuGuard ML model training with standard preprocessing"
+  }
+}

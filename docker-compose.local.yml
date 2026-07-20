@@ -1,0 +1,107 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: vayuguard-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: vayuguard
+      POSTGRES_USER: vayuguard_user
+      POSTGRES_PASSWORD: vayuguard_pass
+      POSTGRES_INITDB_ARGS: "-c max_connections=100"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./infra/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    ports:
+      - '5432:5432'
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vayuguard_user -d vayuguard"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - vayuguard-net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: vayuguard-backend
+    restart: unless-stopped
+    ports:
+      - '5000:5000'
+      - '5001:5001'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: vayuguard
+      DB_USER: vayuguard_user
+      DB_PASSWORD: vayuguard_pass
+      JWT_SECRET: vayuguard-secret-key-for-local-development
+      ML_SERVICE_URL: http://ml-service:8001
+      FRONTEND_URL: http://localhost:3000
+      NODE_ENV: development
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5000/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - vayuguard-net
+
+  ml-service:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    container_name: vayuguard-ml-service
+    restart: unless-stopped
+    ports:
+      - '8001:8001'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: vayuguard
+      DB_USER: vayuguard_user
+      DB_PASSWORD: vayuguard_pass
+      ENVIRONMENT: production
+      MODEL_PATH: ./models/production_lasso.pkl
+      PORT: 8001
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8001/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - vayuguard-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: vayuguard-frontend
+    restart: unless-stopped
+    ports:
+      - '3000:80'
+    depends_on:
+      - backend
+    environment:
+      VITE_API_URL: http://localhost:5000/api
+    networks:
+      - vayuguard-net
+
+volumes:
+  pgdata:
+
+networks:
+  vayuguard-net:
+    driver: bridge

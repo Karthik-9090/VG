@@ -1,0 +1,84 @@
+name: Rollback Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to rollback to (e.g., v1.0.0)'
+        required: true
+        type: string
+      include_database:
+        description: 'Rollback database to this version?'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Validate rollback version
+        run: |
+          VERSION="${{ github.event.inputs.version }}"
+          if ! git rev-parse "$VERSION" >/dev/null 2>&1; then
+            echo "ERROR: Version tag '$VERSION' not found"
+            git tag -l | head -10
+            exit 1
+          fi
+          echo "Rolling back to version: $VERSION"
+      
+      - name: Checkout version
+        run: |
+          git checkout ${{ github.event.inputs.version }}
+          git log --oneline -5
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build Docker images
+        run: |
+          docker compose build --no-cache
+      
+      - name: Verify images
+        run: |
+          docker image ls | grep vayuguard
+      
+      - name: Create rollback tag
+        run: |
+          git tag -a "rollback-${{ github.run_number }}" -m "Rollback to ${{ github.event.inputs.version }}"
+          git push origin "rollback-${{ github.run_number }}"
+      
+      - name: Generate rollback report
+        run: |
+          cat > rollback_report.md << 'EOF'
+          # Rollback Report
+          - **Timestamp**: $(date)
+          - **Rolled back to**: ${{ github.event.inputs.version }}
+          - **Database rollback**: ${{ github.event.inputs.include_database }}
+          - **Run ID**: ${{ github.run_id }}
+          - **Initiated by**: ${{ github.actor }}
+          
+          ## Instructions for deployment:
+          1. Pull this commit: `git checkout ${{ github.event.inputs.version }}`
+          2. Rebuild images: `docker compose build --no-cache`
+          3. Restart services: `docker compose up -d`
+          4. Verify health: `curl http://localhost/health`
+          EOF
+          cat rollback_report.md
+      
+      - name: Upload rollback report
+        uses: actions/upload-artifact@v4
+        with:
+          name: rollback-report-${{ github.run_id }}
+          path: rollback_report.md
+      
+      - name: Notify rollback
+        run: |
+          echo "⚠️  ROLLBACK INITIATED"
+          echo "Version: ${{ github.event.inputs.version }}"
+          echo "Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          echo "Initiated by: ${{ github.actor }}"

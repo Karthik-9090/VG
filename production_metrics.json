@@ -1,0 +1,76 @@
+{
+  "timestamp": "2026-06-16T01:57:18.049160",
+  "phase": 5,
+  "task": "production_retraining",
+  "model_type": "Lasso Regression",
+  "model_version": "v1.0",
+  "model_file": "models/production_lasso.pkl",
+  "deployment_date": "2026-06-16T01:57:18.049173",
+  "training_config": {
+    "alpha": 0.1,
+    "max_iter": 5000,
+    "total_features": 30,
+    "feature_count": {
+      "base_engineered": 16,
+      "temporal": 4,
+      "interaction": 4,
+      "pollutants": 6
+    }
+  },
+  "training_data": {
+    "total_records": 5907,
+    "date_range_start": "2019-01-25T00:00:00",
+    "date_range_end": "2024-06-15T00:00:00",
+    "cities": [
+      "Bengaluru",
+      "Chennai",
+      "Hyderabad"
+    ],
+    "records_per_city": {
+      "Bengaluru": 1969,
+      "Chennai": 1969,
+      "Hyderabad": 1969
+    }
+  },
+  "training_metrics": {
+    "mae": 68.41181757365608,
+    "rmse": 82.04691275686076,
+    "mape": 0.6361286588846133,
+    "r2": 0.24579409766688165,
+    "training_time_seconds": 0.14352703094482422
+  },
+  "features": [
+    "lag_1",
+    "lag_3",
+    "lag_6",
+    "lag_12",
+    "lag_24",
+    "rolling_mean_6",
+    "rolling_mean_12",
+    "rolling_mean_24",
+    "rolling_std_6",
+    "rolling_std_12",
+    "rolling_std_24",
+    "hour",
+    "day_of_week",
+    "month",
+    "quarter",
+    "day_of_month",
+    "year",
+    "week_of_year",
+    "season",
+    "days_since_start",
+    "pm2_5",
+    "pm10",
+    "no2",
+    "so2",
+    "co",
+    "o3",
+    "lag_1_x_rolling_mean_6",
+    "lag_3_x_rolling_std_6",
+    "pm25_x_pm10",
+    "no2_x_so2"
+  ],
+  "model_status": "production_ready",
+  "deployment_status": "ready_for_deployment"
+}

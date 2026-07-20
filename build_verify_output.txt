@@ -1,0 +1,851 @@
+﻿docker.exe : time="2026-07-12T22:35:57+05:30" level=warning msg="The 
+\"CPCB_API_URL\" variable is not set. Defaulting to a blank string."
+At line:1 char:168
++ ... er_config'; & $docker compose -f docker-compose.yml build *>&1 | Out- ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (time="2026-07-1... blank string." 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+time="2026-07-12T22:35:57+05:30" level=warning msg="The \"CPCB_API_KEY\" 
+variable is not set. Defaulting to a blank string."
+time="2026-07-12T22:35:57+05:30" level=warning msg="C:\\Users\\Kandra 
+Karthik\\Downloads\\VG\\docker-compose.yml: the attribute `version` is 
+obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Image vg-nginx Building 
+ Image vg-frontend Building 
+ Image vg-backend Building 
+ Image vg-ml-service Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.01kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 787B 0.1s done
+#2 DONE 0.1s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 268B 0.0s done
+#3 DONE 0.1s
+
+#4 [nginx internal] load build definition from Dockerfile
+#4 transferring dockerfile: 598B 0.0s done
+#4 DONE 0.1s
+
+#5 [ml-service internal] load build definition from Dockerfile
+#5 transferring dockerfile: 955B 0.0s done
+#5 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 2)
+#5 DONE 0.1s
+
+#6 [backend internal] load metadata for docker.io/library/node:20-slim
+#6 ...
+
+#7 [frontend internal] load metadata for docker.io/library/nginx:alpine
+#7 DONE 1.1s
+
+#8 [ml-service internal] load metadata for docker.io/library/python:3.12-slim
+#8 DONE 1.2s
+
+#6 [frontend internal] load metadata for docker.io/library/node:20-slim
+#6 DONE 1.2s
+
+#9 [frontend internal] load .dockerignore
+#9 DONE 0.0s
+
+#10 [backend internal] load .dockerignore
+#10 DONE 0.0s
+
+#11 [nginx internal] load metadata for docker.io/library/nginx:1.26-alpine
+#11 DONE 1.2s
+
+#9 [frontend internal] load .dockerignore
+#9 transferring context: 2B done
+#9 DONE 0.1s
+
+#12 [ml-service internal] load .dockerignore
+#12 transferring context: 2B 0.0s done
+#12 DONE 0.1s
+
+#10 [backend internal] load .dockerignore
+#10 transferring context: 2B 0.0s done
+#10 DONE 0.1s
+
+#13 [frontend internal] load build context
+#13 DONE 0.0s
+
+#14 [frontend builder 1/6] FROM docker.io/library/node:20-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0
+#14 resolve docker.io/library/node:20-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0
+#14 ...
+
+#15 [nginx internal] load .dockerignore
+#15 transferring context: 2B 0.0s done
+#15 DONE 0.1s
+
+#16 [backend internal] load build context
+#16 DONE 0.0s
+
+#17 [ml-service internal] load build context
+#17 DONE 0.0s
+
+#18 [nginx internal] load build context
+#18 DONE 0.0s
+
+#14 [backend builder 1/6] FROM docker.io/library/node:20-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0
+#14 resolve docker.io/library/node:20-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0 0.2s done
+#14 DONE 0.2s
+
+#19 [frontend stage-1 1/2] FROM docker.io/library/nginx:alpine@sha256:54f2a904c251d5a34adf545a72d32515a15e08418dae0266e23be2e18c66fefa
+#19 resolve docker.io/library/nginx:alpine@sha256:54f2a904c251d5a34adf545a72d32515a15e08418dae0266e23be2e18c66fefa 0.2s done
+#19 CACHED
+
+#20 [backend builder 2/6] WORKDIR /app
+#20 CACHED
+
+#16 [backend internal] load build context
+#16 transferring context: 613B 0.0s done
+#16 DONE 0.1s
+
+#21 [nginx 1/3] FROM docker.io/library/nginx:1.26-alpine@sha256:1eadbb07820339e8bbfed18c771691970baee292ec4ab2558f1453d26153e22d
+#21 resolve docker.io/library/nginx:1.26-alpine@sha256:1eadbb07820339e8bbfed18c771691970baee292ec4ab2558f1453d26153e22d 0.1s done
+#21 DONE 0.1s
+
+#22 [ml-service builder 1/4] FROM docker.io/library/python:3.12-slim@sha256:423ed6ab25b1921a477529254bfeeabf5855151dc2c3141699a1bfc852199fbf
+#22 resolve docker.io/library/python:3.12-slim@sha256:423ed6ab25b1921a477529254bfeeabf5855151dc2c3141699a1bfc852199fbf 0.2s done
+#22 DONE 0.2s
+
+#13 [frontend internal] load build context
+#13 transferring context: 1.09kB 0.0s done
+#13 DONE 0.1s
+
+#23 [ml-service builder 2/4] WORKDIR /app
+#23 CACHED
+
+#24 [backend builder 3/4] COPY package*.json ./
+#24 CACHED
+
+#25 [frontend builder 3/6] COPY package*.json ./
+#25 CACHED
+
+#26 [backend builder 4/4] RUN npm ci
+#26 CACHED
+
+#18 [nginx internal] load build context
+#18 transferring context: 32B 0.0s done
+#18 DONE 0.0s
+
+#17 [ml-service internal] load build context
+#17 transferring context: 439B 0.0s done
+#17 DONE 0.1s
+
+#27 [nginx 2/3] COPY nginx.conf /etc/nginx/nginx.conf
+#27 CACHED
+
+#28 [nginx 3/3] RUN apk add --no-cache openssl &&     mkdir -p /etc/nginx/ssl &&     openssl req -x509 -nodes -days 365 -newkey rsa:2048     -keyout /etc/nginx/ssl/key.pem     -out /etc/nginx/ssl/cert.pem     -subj "/C=IN/ST=Delhi/L=Delhi/O=VayuGuard/CN=localhost" &&     chown -R nginx:nginx /etc/nginx
+#28 CACHED
+
+#29 [nginx] exporting to image
+#29 exporting layers 0.0s done
+#29 exporting manifest sha256:331e9c8230490ce9fa030db9b1e0fffbf363f1158b8013b535e29eb747f554b7 0.0s done
+#29 exporting config sha256:47a83fa37df491a488efd6cda1d16f2444be7bf5011ce28e4c304362388d86b1 0.0s done
+#29 exporting attestation manifest sha256:345858e2b6709120dcea52b9d99fed5c6e3de9730542d8afaca877969dcc1eda
+#29 ...
+
+#30 [ml-service builder 3/4] COPY requirements.txt ./
+#30 DONE 0.2s
+
+#29 [nginx] exporting to image
+#29 exporting attestation manifest sha256:345858e2b6709120dcea52b9d99fed5c6e3de9730542d8afaca877969dcc1eda 0.1s done
+#29 exporting manifest list sha256:85fd4012672890ff7f2c68cd61c85b2818ad4252c0754120ee946345e5e3ab50
+#29 exporting manifest list sha256:85fd4012672890ff7f2c68cd61c85b2818ad4252c0754120ee946345e5e3ab50 0.1s done
+#29 naming to docker.io/library/vg-nginx:latest 0.0s done
+#29 unpacking to docker.io/library/vg-nginx:latest 0.0s done
+#29 DONE 0.6s
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 ...
+
+#32 [nginx] resolving provenance for metadata file
+#32 DONE 0.1s
+
+#33 [frontend builder 4/6] RUN npm ci
+#33 ...
+
+#34 [backend stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#34 2.265 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#34 4.154 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#34 5.118 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#34 7.201 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8790 kB]
+#34 ...
+
+#35 [ml-service stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#35 2.543 Get:1 http://deb.debian.org/debian trixie InRelease [140 kB]
+#35 6.436 Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+#35 8.552 Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+#35 10.08 Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9673 kB]
+#35 ...
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 10.95 Collecting fastapi>=0.104.1 (from -r requirements.txt (line 1))
+#31 12.74   Downloading fastapi-0.139.0-py3-none-any.whl.metadata (26 kB)
+#31 15.69 Collecting uvicorn>=0.24.0 (from uvicorn[standard]>=0.24.0->-r requirements.txt (line 2))
+#31 15.73   Downloading uvicorn-0.51.0-py3-none-any.whl.metadata (6.6 kB)
+#31 16.59 Collecting prometheus-client>=0.18.0 (from -r requirements.txt (line 3))
+#31 16.73   Downloading prometheus_client-0.25.0-py3-none-any.whl.metadata (2.1 kB)
+#31 23.16 Collecting scikit-learn>=1.3.2 (from -r requirements.txt (line 4))
+#31 23.21   Downloading scikit_learn-1.9.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (11 kB)
+#31 ...
+
+#33 [frontend builder 4/6] RUN npm ci
+#33 13.91 npm warn deprecated whatwg-encoding@3.1.1: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+#33 22.81 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#33 23.35 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#33 ...
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 25.68 Collecting xgboost>=2.0.3 (from -r requirements.txt (line 5))
+#31 25.78   Downloading xgboost-3.3.0-py3-none-manylinux_2_28_x86_64.whl.metadata (2.0 kB)
+#31 ...
+
+#33 [frontend builder 4/6] RUN npm ci
+#33 34.68 npm warn deprecated recharts@2.15.4: 1.x and 2.x branches are no longer active. Bump to Recharts v3 to receive latest features and bugfixes. See https://github.com/recharts/recharts/wiki/3.0-migration-guide
+#33 ...
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 40.81 Collecting pandas>=2.1.3 (from -r requirements.txt (line 6))
+#31 40.93   Downloading pandas-3.0.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+#31 61.04 Collecting numpy>=1.26.2 (from -r requirements.txt (line 7))
+#31 61.10   Downloading numpy-2.5.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+#31 70.88 Collecting pydantic>=2.5.0 (from -r requirements.txt (line 8))
+#31 71.10   Downloading pydantic-2.13.4-py3-none-any.whl.metadata (109 kB)
+#31 ...
+
+#33 [frontend builder 4/6] RUN npm ci
+#33 73.50 
+#33 73.50 added 611 packages, and audited 612 packages in 1m
+#33 73.50 
+#33 73.50 89 packages are looking for funding
+#33 73.50   run `npm fund` for details
+#33 73.53 
+#33 73.53 3 vulnerabilities (2 moderate, 1 high)
+#33 73.53 
+#33 73.53 To address issues that do not require attention, run:
+#33 73.53   npm audit fix
+#33 73.53 
+#33 73.53 To address all issues (including breaking changes), run:
+#33 73.53   npm audit fix --force
+#33 73.53 
+#33 73.53 Run `npm audit` for details.
+#33 73.54 npm notice
+#33 73.54 npm notice New major version of npm available! 10.8.2 -> 12.0.1
+#33 73.54 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.1
+#33 73.54 npm notice To update run: npm install -g npm@12.0.1
+#33 73.54 npm notice
+#33 DONE 74.0s
+
+#34 [backend stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#34 ...
+
+#36 [frontend builder 5/6] COPY . .
+#36 DONE 0.4s
+
+#34 [backend stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#34 ...
+
+#37 [frontend builder 6/6] RUN npm run build
+#37 0.619 
+#37 0.619 > vayuguard-frontend@1.0.0 build
+#37 0.619 > vite build
+#37 0.619 
+#37 1.183 vite v5.4.21 building for production...
+#37 1.350 transforming...
+#37 5.702 Ô£ô 143 modules transformed.
+#37 6.665 rendering chunks...
+#37 7.393 computing gzip size...
+#37 7.442 dist/index.html                   0.41 kB Ôöé gzip:   0.30 kB
+#37 7.442 dist/assets/index-YzVT1jd9.css   27.28 kB Ôöé gzip:   9.12 kB
+#37 7.443 dist/assets/index-Bpp_JmVC.js   394.86 kB Ôöé gzip: 123.98 kB Ôöé map: 1,725.40 kB
+#37 7.444 Ô£ô built in 6.18s
+#37 DONE 7.6s
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 76.11 Collecting joblib>=1.3.2 (from -r requirements.txt (line 9))
+#31 76.24   Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+#31 77.11 Collecting python-dotenv>=1.0.0 (from -r requirements.txt (line 10))
+#31 77.21   Downloading python_dotenv-1.2.2-py3-none-any.whl.metadata (27 kB)
+#31 80.58 Collecting psycopg2-binary>=2.9.9 (from -r requirements.txt (line 11))
+#31 80.63   Downloading psycopg2_binary-2.9.12-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+#31 81.42 Collecting requests>=2.31.0 (from -r requirements.txt (line 12))
+#31 81.50   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+#31 82.02 Collecting idna<4,>=2.5 (from -r requirements.txt (line 13))
+#31 82.07   Downloading idna-3.18-py3-none-any.whl.metadata (6.1 kB)
+#31 ...
+
+#38 [frontend stage-1 2/2] COPY --from=builder /app/dist /usr/share/nginx/html
+#38 DONE 0.1s
+
+#39 [frontend] exporting to image
+#39 exporting layers
+#39 exporting layers 0.5s done
+#39 exporting manifest sha256:13495356641bd424119791424504a282b3be70a06827d30f9d888777a2a87e4f 0.0s done
+#39 exporting config sha256:742de24bcbbd3405e52530f5e5f53f8cf1324dc4524e63f9076de4365bf08a21 0.0s done
+#39 exporting attestation manifest sha256:078dd1ee35dbef7bd61a3c633c8b176e48cbf876dadf4d8177aded9c1e1d5843
+#39 exporting attestation manifest sha256:078dd1ee35dbef7bd61a3c633c8b176e48cbf876dadf4d8177aded9c1e1d5843 0.1s done
+#39 exporting manifest list sha256:e187f33dff638423d17ed460b5ca14c212d06cf688f14c5bac067d47cf48c18a 0.0s done
+#39 naming to docker.io/library/vg-frontend:latest
+#39 naming to docker.io/library/vg-frontend:latest done
+#39 unpacking to docker.io/library/vg-frontend:latest 0.1s done
+#39 DONE 1.0s
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 83.20 Collecting starlette>=0.46.0 (from fastapi>=0.104.1->-r requirements.txt (line 1))
+#31 83.36   Downloading starlette-1.3.1-py3-none-any.whl.metadata (6.4 kB)
+#31 83.75 Collecting typing-extensions>=4.8.0 (from fastapi>=0.104.1->-r requirements.txt (line 1))
+#31 83.82   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#31 84.00 Collecting typing-inspection>=0.4.2 (from fastapi>=0.104.1->-r requirements.txt (line 1))
+#31 ...
+
+#40 [frontend] resolving provenance for metadata file
+#40 DONE 0.1s
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 84.17   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+#31 84.29 Collecting annotated-doc>=0.0.2 (from fastapi>=0.104.1->-r requirements.txt (line 1))
+#31 84.35   Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)
+#31 85.00 Collecting click>=7.0 (from uvicorn>=0.24.0->uvicorn[standard]>=0.24.0->-r requirements.txt (line 2))
+#31 85.09   Downloading click-8.4.2-py3-none-any.whl.metadata (2.6 kB)
+#31 85.26 Collecting h11>=0.8 (from uvicorn>=0.24.0->uvicorn[standard]>=0.24.0->-r requirements.txt (line 2))
+#31 85.36   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#31 94.67 Collecting scipy>=1.10.0 (from scikit-learn>=1.3.2->-r requirements.txt (line 4))
+#31 94.84   Downloading scipy-1.18.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+#31 98.36 Collecting narwhals>=2.0.1 (from scikit-learn>=1.3.2->-r requirements.txt (line 4))
+#31 98.42   Downloading narwhals-2.23.0-py3-none-any.whl.metadata (15 kB)
+#31 99.23 Collecting threadpoolctl>=3.5.0 (from scikit-learn>=1.3.2->-r requirements.txt (line 4))
+#31 99.32   Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+#31 100.2 Collecting nvidia-nccl-cu12 (from xgboost>=2.0.3->-r requirements.txt (line 5))
+#31 100.3   Downloading nvidia_nccl_cu12-2.30.7-py3-none-manylinux_2_18_x86_64.whl.metadata (2.1 kB)
+#31 101.1 Collecting python-dateutil>=2.8.2 (from pandas>=2.1.3->-r requirements.txt (line 6))
+#31 101.7   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+#31 101.9 Collecting annotated-types>=0.6.0 (from pydantic>=2.5.0->-r requirements.txt (line 8))
+#31 102.3   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+#31 150.1 Collecting pydantic-core==2.46.4 (from pydantic>=2.5.0->-r requirements.txt (line 8))
+#31 150.2   Downloading pydantic_core-2.46.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+#31 157.6 Collecting charset_normalizer<4,>=2 (from requests>=2.31.0->-r requirements.txt (line 12))
+#31 157.7   Downloading charset_normalizer-3.4.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (41 kB)
+#31 159.5 Collecting urllib3<3,>=1.26 (from requests>=2.31.0->-r requirements.txt (line 12))
+#31 159.7   Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+#31 160.7 Collecting certifi>=2023.5.7 (from requests>=2.31.0->-r requirements.txt (line 12))
+#31 160.9   Downloading certifi-2026.6.17-py3-none-any.whl.metadata (2.5 kB)
+#31 162.6 Collecting httptools>=0.8.0 (from uvicorn[standard]>=0.24.0->-r requirements.txt (line 2))
+#31 162.7   Downloading httptools-0.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (3.5 kB)
+#31 164.5 Collecting pyyaml>=5.1 (from uvicorn[standard]>=0.24.0->-r requirements.txt (line 2))
+#31 164.6   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+#31 167.1 Collecting uvloop>=0.15.1 (from uvicorn[standard]>=0.24.0->-r requirements.txt (line 2))
+#31 167.2   Downloading uvloop-0.22.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (4.9 kB)
+#31 171.4 Collecting watchfiles>=0.20 (from uvicorn[standard]>=0.24.0->-r requirements.txt (line 2))
+#31 171.6   Downloading watchfiles-1.2.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+#31 176.6 Collecting websockets>=13.0 (from uvicorn[standard]>=0.24.0->-r requirements.txt (line 2))
+#31 176.8   Downloading websockets-16.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.8 kB)
+#31 177.7 Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas>=2.1.3->-r requirements.txt (line 6))
+#31 177.9   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#31 178.4 Collecting anyio<5,>=3.6.2 (from starlette>=0.46.0->fastapi>=0.104.1->-r requirements.txt (line 1))
+#31 178.5   Downloading anyio-4.14.1-py3-none-any.whl.metadata (4.6 kB)
+#31 178.7 Downloading fastapi-0.139.0-py3-none-any.whl (130 kB)
+#31 182.5 Downloading uvicorn-0.51.0-py3-none-any.whl (73 kB)
+#31 185.4 Downloading prometheus_client-0.25.0-py3-none-any.whl (64 kB)
+#31 187.8 Downloading scikit_learn-1.9.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.1 MB)
+#31 ...
+
+#34 [backend stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#34 277.3 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#34 277.4 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [316 kB]
+#34 ...
+
+#35 [ml-service stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#35 285.2 Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [5412 B]
+#35 285.2 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [225 kB]
+#35 288.9 Fetched 10.1 MB in 4min 47s (35.3 kB/s)
+#35 288.9 Reading package lists...
+#35 290.8 Reading package lists...
+#35 ...
+
+#34 [backend stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#34 285.7 Fetched 9367 kB in 4min 44s (33.0 kB/s)
+#34 285.7 Reading package lists...
+#34 287.9 Reading package lists...
+#34 289.3 Building dependency tree...
+#34 289.9 Reading state information...
+#34 290.4 The following additional packages will be installed:
+#34 290.5   ca-certificates krb5-locales libbrotli1 libcurl4 libgssapi-krb5-2
+#34 290.5   libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.5-0
+#34 290.5   libldap-common libnghttp2-14 libpsl5 librtmp1 libsasl2-2 libsasl2-modules
+#34 290.5   libsasl2-modules-db libssh2-1 libssl3 openssl publicsuffix
+#34 290.5 Suggested packages:
+#34 290.5   krb5-doc krb5-user libsasl2-modules-gssapi-mit
+#34 290.5   | libsasl2-modules-gssapi-heimdal libsasl2-modules-ldap libsasl2-modules-otp
+#34 290.5   libsasl2-modules-sql
+#34 290.8 The following NEW packages will be installed:
+#34 290.8   ca-certificates curl krb5-locales libbrotli1 libcurl4 libgssapi-krb5-2
+#34 290.8   libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap-2.5-0
+#34 290.8   libldap-common libnghttp2-14 libpsl5 librtmp1 libsasl2-2 libsasl2-modules
+#34 290.8   libsasl2-modules-db libssh2-1 libssl3 openssl publicsuffix
+#34 291.2 0 upgraded, 22 newly installed, 0 to remove and 13 not upgraded.
+#34 291.2 Need to get 6122 kB of archives.
+#34 291.2 After this operation, 15.7 MB of additional disk space will be used.
+#34 291.2 Get:1 http://deb.debian.org/debian bookworm/main amd64 libssl3 amd64 3.0.20-1~deb12u2 [2036 kB]
+#34 ...
+
+#35 [ml-service stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#35 290.8 Reading package lists...
+#35 292.2 Building dependency tree...
+#35 292.6 Reading state information...
+#35 293.2 The following additional packages will be installed:
+#35 293.2   bash-completion krb5-locales libbrotli1 libcom-err2 libcurl4t64
+#35 293.2   libgnutls30t64 libgssapi-krb5-2 libidn2-0 libk5crypto3 libkeyutils1
+#35 293.2   libkrb5-3 libkrb5support0 libldap-common libldap2 libnghttp2-14 libnghttp3-9
+#35 293.2   libp11-kit0 libpsl5t64 librtmp1 libsasl2-2 libsasl2-modules
+#35 293.3   libsasl2-modules-db libssh2-1t64 libtasn1-6 libunistring5 publicsuffix
+#35 293.3 Suggested packages:
+#35 293.3   gnutls-bin krb5-doc krb5-user libsasl2-modules-gssapi-mit
+#35 293.3   | libsasl2-modules-gssapi-heimdal libsasl2-modules-ldap libsasl2-modules-otp
+#35 293.3   libsasl2-modules-sql
+#35 293.6 The following NEW packages will be installed:
+#35 293.6   bash-completion curl krb5-locales libbrotli1 libcom-err2 libcurl4t64
+#35 293.6   libgnutls30t64 libgssapi-krb5-2 libidn2-0 libk5crypto3 libkeyutils1
+#35 293.6   libkrb5-3 libkrb5support0 libldap-common libldap2 libnghttp2-14 libnghttp3-9
+#35 293.6   libp11-kit0 libpsl5t64 librtmp1 libsasl2-2 libsasl2-modules
+#35 293.6   libsasl2-modules-db libssh2-1t64 libtasn1-6 libunistring5 publicsuffix
+#35 294.2 0 upgraded, 27 newly installed, 0 to remove and 2 not upgraded.
+#35 294.2 Need to get 5706 kB of archives.
+#35 294.2 After this operation, 18.3 MB of additional disk space will be used.
+#35 294.2 Get:1 http://deb.debian.org/debian trixie/main amd64 bash-completion all 1:2.16.0-7 [319 kB]
+#35 302.0 Get:2 http://deb.debian.org/debian trixie/main amd64 krb5-locales all 1.21.3-5+deb13u1 [101 kB]
+#35 305.1 Get:3 http://deb.debian.org/debian trixie/main amd64 libbrotli1 amd64 1.1.0-2+b7 [307 kB]
+#35 315.1 Get:4 http://deb.debian.org/debian trixie/main amd64 libkrb5support0 amd64 1.21.3-5+deb13u1 [33.1 kB]
+#35 315.8 Get:5 http://deb.debian.org/debian trixie/main amd64 libcom-err2 amd64 1.47.2-3+b11 [25.0 kB]
+#35 316.2 Get:6 http://deb.debian.org/debian trixie/main amd64 libk5crypto3 amd64 1.21.3-5+deb13u1 [81.2 kB]
+#35 318.9 Get:7 http://deb.debian.org/debian trixie/main amd64 libkeyutils1 amd64 1.6.3-6 [9456 B]
+#35 318.9 Get:8 http://deb.debian.org/debian trixie/main amd64 libkrb5-3 amd64 1.21.3-5+deb13u1 [326 kB]
+#35 327.5 Get:9 http://deb.debian.org/debian trixie/main amd64 libgssapi-krb5-2 amd64 1.21.3-5+deb13u1 [138 kB]
+#35 330.4 Get:10 http://deb.debian.org/debian trixie/main amd64 libunistring5 amd64 1.3-2 [477 kB]
+#35 345.0 Get:11 http://deb.debian.org/debian trixie/main amd64 libidn2-0 amd64 2.3.8-2 [109 kB]
+#35 347.0 Get:12 http://deb.debian.org/debian trixie/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg1-9 [19.8 kB]
+#35 347.3 Get:13 http://deb.debian.org/debian trixie/main amd64 libsasl2-2 amd64 2.1.28+dfsg1-9 [57.5 kB]
+#35 ...
+
+#34 [backend stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#34 347.7 Get:2 http://deb.debian.org/debian bookworm/main amd64 openssl amd64 3.0.20-1~deb12u2 [1439 kB]
+#34 ...
+
+#35 [ml-service stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#35 348.6 Get:14 http://deb.debian.org/debian trixie/main amd64 libldap2 amd64 2.6.10+dfsg-1 [194 kB]
+#35 356.5 Get:15 http://deb.debian.org/debian trixie/main amd64 libnghttp2-14 amd64 1.64.0-1.1+deb13u1 [76.2 kB]
+#35 360.1 Get:16 http://deb.debian.org/debian trixie/main amd64 libnghttp3-9 amd64 1.8.0-1 [67.7 kB]
+#35 361.7 Get:17 http://deb.debian.org/debian trixie/main amd64 libpsl5t64 amd64 0.21.2-1.1+b1 [57.2 kB]
+#35 363.3 Get:18 http://deb.debian.org/debian trixie/main amd64 libp11-kit0 amd64 0.25.5-3 [425 kB]
+#35 375.9 Get:19 http://deb.debian.org/debian trixie/main amd64 libtasn1-6 amd64 4.20.0-2+deb13u1 [50.1 kB]
+#35 377.5 Get:20 http://deb.debian.org/debian trixie/main amd64 libgnutls30t64 amd64 3.8.9-3+deb13u4 [1469 kB]
+#35 ...
+
+#34 [backend stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#34 385.6 Get:3 http://deb.debian.org/debian bookworm/main amd64 ca-certificates all 20230311+deb12u1 [155 kB]
+#34 390.3 Get:4 http://deb.debian.org/debian bookworm/main amd64 krb5-locales all 1.20.1-2+deb12u5 [63.5 kB]
+#34 392.6 Get:5 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#34 398.6 Get:6 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u5 [33.2 kB]
+#34 399.4 Get:7 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u5 [79.7 kB]
+#34 402.3 Get:8 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#34 402.3 Get:9 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u5 [332 kB]
+#34 411.3 Get:10 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u5 [135 kB]
+#34 414.3 Get:11 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg-10 [20.3 kB]
+#34 414.7 Get:12 http://deb.debian.org/debian bookworm/main amd64 libsasl2-2 amd64 2.1.28+dfsg-10 [59.7 kB]
+#34 416.4 Get:13 http://deb.debian.org/debian bookworm/main amd64 libldap-2.5-0 amd64 2.5.13+dfsg-5 [183 kB]
+#34 ...
+
+#35 [ml-service stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#35 416.4 Get:21 http://deb.debian.org/debian trixie/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b5 [58.8 kB]
+#35 418.2 Get:22 http://deb.debian.org/debian trixie/main amd64 libssh2-1t64 amd64 1.11.1-1+deb13u1 [245 kB]
+#35 ...
+
+#34 [backend stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#34 420.2 Get:14 http://deb.debian.org/debian bookworm/main amd64 libnghttp2-14 amd64 1.52.0-1+deb12u3 [72.4 kB]
+#34 422.5 Get:15 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
+#34 423.6 Get:16 http://deb.debian.org/debian bookworm/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+#34 424.9 Get:17 http://deb.debian.org/debian bookworm/main amd64 libssh2-1 amd64 1.10.0-3+b1 [179 kB]
+#34 ...
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 425.8    ÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöü 9.1/9.1 MB 45.3 kB/s eta 0:00:00
+#31 425.9 Downloading xgboost-3.3.0-py3-none-manylinux_2_28_x86_64.whl (98.7 MB)
+#31 ...
+
+#35 [ml-service stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#35 424.1 Get:23 http://deb.debian.org/debian trixie/main amd64 libcurl4t64 amd64 8.14.1-2+deb13u4 [392 kB]
+#35 432.9 Get:24 http://deb.debian.org/debian trixie/main amd64 curl amd64 8.14.1-2+deb13u4 [270 kB]
+#35 ...
+
+#34 [backend stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#34 428.1 Get:18 http://deb.debian.org/debian bookworm/main amd64 libcurl4 amd64 7.88.1-10+deb12u15 [392 kB]
+#34 437.7 Get:19 http://deb.debian.org/debian bookworm/main amd64 curl amd64 7.88.1-10+deb12u15 [316 kB]
+#34 ...
+
+#35 [ml-service stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#35 437.8 Get:25 http://deb.debian.org/debian trixie/main amd64 libldap-common all 2.6.10+dfsg-1 [35.1 kB]
+#35 438.2 Get:26 http://deb.debian.org/debian trixie/main amd64 libsasl2-modules amd64 2.1.28+dfsg1-9 [66.7 kB]
+#35 439.1 Get:27 http://deb.debian.org/debian trixie/main amd64 publicsuffix all 20250328.1952-0.1 [296 kB]
+#35 ...
+
+#34 [backend stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#34 444.6 Get:20 http://deb.debian.org/debian bookworm/main amd64 libldap-common all 2.5.13+dfsg-5 [29.3 kB]
+#34 445.0 Get:21 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules amd64 2.1.28+dfsg-10 [66.6 kB]
+#34 446.0 Get:22 http://deb.debian.org/debian bookworm/main amd64 publicsuffix all 20230209.2326-1 [126 kB]
+#34 449.2 debconf: delaying package configuration, since apt-utils is not installed
+#34 449.4 Fetched 6122 kB in 2min 37s (38.9 kB/s)
+#34 449.6 Selecting previously unselected package libssl3:amd64.
+#34 449.6 (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 6096 files and directories currently installed.)
+#34 449.8 Preparing to unpack .../00-libssl3_3.0.20-1~deb12u2_amd64.deb ...
+#34 449.8 Unpacking libssl3:amd64 (3.0.20-1~deb12u2) ...
+#34 450.2 Selecting previously unselected package openssl.
+#34 450.2 Preparing to unpack .../01-openssl_3.0.20-1~deb12u2_amd64.deb ...
+#34 450.3 Unpacking openssl (3.0.20-1~deb12u2) ...
+#34 450.6 Selecting previously unselected package ca-certificates.
+#34 450.6 Preparing to unpack .../02-ca-certificates_20230311+deb12u1_all.deb ...
+#34 450.6 Unpacking ca-certificates (20230311+deb12u1) ...
+#34 450.9 Selecting previously unselected package krb5-locales.
+#34 450.9 Preparing to unpack .../03-krb5-locales_1.20.1-2+deb12u5_all.deb ...
+#34 450.9 Unpacking krb5-locales (1.20.1-2+deb12u5) ...
+#34 451.1 Selecting previously unselected package libbrotli1:amd64.
+#34 451.1 Preparing to unpack .../04-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#34 451.1 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#34 451.3 Selecting previously unselected package libkrb5support0:amd64.
+#34 451.3 Preparing to unpack .../05-libkrb5support0_1.20.1-2+deb12u5_amd64.deb ...
+#34 451.3 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u5) ...
+#34 451.5 Selecting previously unselected package libk5crypto3:amd64.
+#34 451.5 Preparing to unpack .../06-libk5crypto3_1.20.1-2+deb12u5_amd64.deb ...
+#34 451.5 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u5) ...
+#34 451.6 Selecting previously unselected package libkeyutils1:amd64.
+#34 451.6 Preparing to unpack .../07-libkeyutils1_1.6.3-2_amd64.deb ...
+#34 451.7 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#34 451.9 Selecting previously unselected package libkrb5-3:amd64.
+#34 451.9 Preparing to unpack .../08-libkrb5-3_1.20.1-2+deb12u5_amd64.deb ...
+#34 451.9 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u5) ...
+#34 452.2 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#34 452.2 Preparing to unpack .../09-libgssapi-krb5-2_1.20.1-2+deb12u5_amd64.deb ...
+#34 452.2 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u5) ...
+#34 452.4 Selecting previously unselected package libsasl2-modules-db:amd64.
+#34 452.4 Preparing to unpack .../10-libsasl2-modules-db_2.1.28+dfsg-10_amd64.deb ...
+#34 452.4 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#34 452.6 Selecting previously unselected package libsasl2-2:amd64.
+#34 452.6 Preparing to unpack .../11-libsasl2-2_2.1.28+dfsg-10_amd64.deb ...
+#34 452.6 Unpacking libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#34 452.8 Selecting previously unselected package libldap-2.5-0:amd64.
+#34 452.9 Preparing to unpack .../12-libldap-2.5-0_2.5.13+dfsg-5_amd64.deb ...
+#34 452.9 Unpacking libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#34 453.1 Selecting previously unselected package libnghttp2-14:amd64.
+#34 453.1 Preparing to unpack .../13-libnghttp2-14_1.52.0-1+deb12u3_amd64.deb ...
+#34 453.1 Unpacking libnghttp2-14:amd64 (1.52.0-1+deb12u3) ...
+#34 453.3 Selecting previously unselected package libpsl5:amd64.
+#34 453.3 Preparing to unpack .../14-libpsl5_0.21.2-1_amd64.deb ...
+#34 453.3 Unpacking libpsl5:amd64 (0.21.2-1) ...
+#34 453.5 Selecting previously unselected package librtmp1:amd64.
+#34 453.5 Preparing to unpack .../15-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+#34 453.5 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#34 453.7 Selecting previously unselected package libssh2-1:amd64.
+#34 453.7 Preparing to unpack .../16-libssh2-1_1.10.0-3+b1_amd64.deb ...
+#34 453.8 Unpacking libssh2-1:amd64 (1.10.0-3+b1) ...
+#34 454.0 Selecting previously unselected package libcurl4:amd64.
+#34 454.0 Preparing to unpack .../17-libcurl4_7.88.1-10+deb12u15_amd64.deb ...
+#34 454.0 Unpacking libcurl4:amd64 (7.88.1-10+deb12u15) ...
+#34 454.2 Selecting previously unselected package curl.
+#34 454.2 Preparing to unpack .../18-curl_7.88.1-10+deb12u15_amd64.deb ...
+#34 454.3 Unpacking curl (7.88.1-10+deb12u15) ...
+#34 454.5 Selecting previously unselected package libldap-common.
+#34 454.5 Preparing to unpack .../19-libldap-common_2.5.13+dfsg-5_all.deb ...
+#34 454.5 Unpacking libldap-common (2.5.13+dfsg-5) ...
+#34 454.7 Selecting previously unselected package libsasl2-modules:amd64.
+#34 454.7 Preparing to unpack .../20-libsasl2-modules_2.1.28+dfsg-10_amd64.deb ...
+#34 454.8 Unpacking libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#34 454.9 Selecting previously unselected package publicsuffix.
+#34 454.9 Preparing to unpack .../21-publicsuffix_20230209.2326-1_all.deb ...
+#34 455.0 Unpacking publicsuffix (20230209.2326-1) ...
+#34 455.2 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#34 455.2 Setting up libpsl5:amd64 (0.21.2-1) ...
+#34 455.3 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#34 455.4 Setting up libssl3:amd64 (3.0.20-1~deb12u2) ...
+#34 455.5 Setting up libnghttp2-14:amd64 (1.52.0-1+deb12u3) ...
+#34 455.5 Setting up krb5-locales (1.20.1-2+deb12u5) ...
+#34 455.6 Setting up libldap-common (2.5.13+dfsg-5) ...
+#34 455.7 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u5) ...
+#34 455.7 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#34 455.8 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#34 455.9 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u5) ...
+#34 455.9 Setting up libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#34 456.0 Setting up libssh2-1:amd64 (1.10.0-3+b1) ...
+#34 456.1 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u5) ...
+#34 456.2 Setting up openssl (3.0.20-1~deb12u2) ...
+#34 456.3 Setting up publicsuffix (20230209.2326-1) ...
+#34 456.3 Setting up libsasl2-modules:amd64 (2.1.28+dfsg-10) ...
+#34 456.4 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#34 456.5 Setting up ca-certificates (20230311+deb12u1) ...
+#34 ...
+
+#35 [ml-service stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#35 446.4 debconf: unable to initialize frontend: Dialog
+#35 446.4 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#35 446.4 debconf: falling back to frontend: Readline
+#35 446.4 debconf: unable to initialize frontend: Readline
+#35 446.4 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8, <STDIN> line 27.)
+#35 446.4 debconf: falling back to frontend: Teletype
+#35 446.4 debconf: unable to initialize frontend: Teletype
+#35 446.4 debconf: (This frontend requires a controlling tty.)
+#35 446.4 debconf: falling back to frontend: Noninteractive
+#35 449.6 Fetched 5706 kB in 2min 32s (37.6 kB/s)
+#35 449.7 Selecting previously unselected package bash-completion.
+#35 449.7 (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 5645 files and directories currently installed.)
+#35 449.9 Preparing to unpack .../00-bash-completion_1%3a2.16.0-7_all.deb ...
+#35 449.9 Unpacking bash-completion (1:2.16.0-7) ...
+#35 451.5 Selecting previously unselected package krb5-locales.
+#35 451.5 Preparing to unpack .../01-krb5-locales_1.21.3-5+deb13u1_all.deb ...
+#35 451.5 Unpacking krb5-locales (1.21.3-5+deb13u1) ...
+#35 451.8 Selecting previously unselected package libbrotli1:amd64.
+#35 451.8 Preparing to unpack .../02-libbrotli1_1.1.0-2+b7_amd64.deb ...
+#35 451.8 Unpacking libbrotli1:amd64 (1.1.0-2+b7) ...
+#35 452.1 Selecting previously unselected package libkrb5support0:amd64.
+#35 452.1 Preparing to unpack .../03-libkrb5support0_1.21.3-5+deb13u1_amd64.deb ...
+#35 452.1 Unpacking libkrb5support0:amd64 (1.21.3-5+deb13u1) ...
+#35 452.3 Selecting previously unselected package libcom-err2:amd64.
+#35 452.3 Preparing to unpack .../04-libcom-err2_1.47.2-3+b11_amd64.deb ...
+#35 452.3 Unpacking libcom-err2:amd64 (1.47.2-3+b11) ...
+#35 452.5 Selecting previously unselected package libk5crypto3:amd64.
+#35 452.5 Preparing to unpack .../05-libk5crypto3_1.21.3-5+deb13u1_amd64.deb ...
+#35 452.5 Unpacking libk5crypto3:amd64 (1.21.3-5+deb13u1) ...
+#35 452.8 Selecting previously unselected package libkeyutils1:amd64.
+#35 452.8 Preparing to unpack .../06-libkeyutils1_1.6.3-6_amd64.deb ...
+#35 452.8 Unpacking libkeyutils1:amd64 (1.6.3-6) ...
+#35 453.0 Selecting previously unselected package libkrb5-3:amd64.
+#35 453.0 Preparing to unpack .../07-libkrb5-3_1.21.3-5+deb13u1_amd64.deb ...
+#35 453.0 Unpacking libkrb5-3:amd64 (1.21.3-5+deb13u1) ...
+#35 453.3 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#35 453.3 Preparing to unpack .../08-libgssapi-krb5-2_1.21.3-5+deb13u1_amd64.deb ...
+#35 453.3 Unpacking libgssapi-krb5-2:amd64 (1.21.3-5+deb13u1) ...
+#35 453.6 Selecting previously unselected package libunistring5:amd64.
+#35 453.6 Preparing to unpack .../09-libunistring5_1.3-2_amd64.deb ...
+#35 453.6 Unpacking libunistring5:amd64 (1.3-2) ...
+#35 453.8 Selecting previously unselected package libidn2-0:amd64.
+#35 453.8 Preparing to unpack .../10-libidn2-0_2.3.8-2_amd64.deb ...
+#35 453.8 Unpacking libidn2-0:amd64 (2.3.8-2) ...
+#35 454.0 Selecting previously unselected package libsasl2-modules-db:amd64.
+#35 454.0 Preparing to unpack .../11-libsasl2-modules-db_2.1.28+dfsg1-9_amd64.deb ...
+#35 454.0 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#35 454.2 Selecting previously unselected package libsasl2-2:amd64.
+#35 454.2 Preparing to unpack .../12-libsasl2-2_2.1.28+dfsg1-9_amd64.deb ...
+#35 454.3 Unpacking libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#35 454.5 Selecting previously unselected package libldap2:amd64.
+#35 454.5 Preparing to unpack .../13-libldap2_2.6.10+dfsg-1_amd64.deb ...
+#35 454.5 Unpacking libldap2:amd64 (2.6.10+dfsg-1) ...
+#35 454.7 Selecting previously unselected package libnghttp2-14:amd64.
+#35 454.7 Preparing to unpack .../14-libnghttp2-14_1.64.0-1.1+deb13u1_amd64.deb ...
+#35 454.8 Unpacking libnghttp2-14:amd64 (1.64.0-1.1+deb13u1) ...
+#35 454.9 Selecting previously unselected package libnghttp3-9:amd64.
+#35 454.9 Preparing to unpack .../15-libnghttp3-9_1.8.0-1_amd64.deb ...
+#35 455.0 Unpacking libnghttp3-9:amd64 (1.8.0-1) ...
+#35 455.2 Selecting previously unselected package libpsl5t64:amd64.
+#35 455.2 Preparing to unpack .../16-libpsl5t64_0.21.2-1.1+b1_amd64.deb ...
+#35 455.2 Unpacking libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+#35 455.4 Selecting previously unselected package libp11-kit0:amd64.
+#35 455.4 Preparing to unpack .../17-libp11-kit0_0.25.5-3_amd64.deb ...
+#35 455.4 Unpacking libp11-kit0:amd64 (0.25.5-3) ...
+#35 455.6 Selecting previously unselected package libtasn1-6:amd64.
+#35 455.6 Preparing to unpack .../18-libtasn1-6_4.20.0-2+deb13u1_amd64.deb ...
+#35 455.7 Unpacking libtasn1-6:amd64 (4.20.0-2+deb13u1) ...
+#35 455.9 Selecting previously unselected package libgnutls30t64:amd64.
+#35 455.9 Preparing to unpack .../19-libgnutls30t64_3.8.9-3+deb13u4_amd64.deb ...
+#35 455.9 Unpacking libgnutls30t64:amd64 (3.8.9-3+deb13u4) ...
+#35 456.2 Selecting previously unselected package librtmp1:amd64.
+#35 456.2 Preparing to unpack .../20-librtmp1_2.4+20151223.gitfa8646d.1-2+b5_amd64.deb ...
+#35 456.3 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+#35 456.4 Selecting previously unselected package libssh2-1t64:amd64.
+#35 456.4 Preparing to unpack .../21-libssh2-1t64_1.11.1-1+deb13u1_amd64.deb ...
+#35 456.4 Unpacking libssh2-1t64:amd64 (1.11.1-1+deb13u1) ...
+#35 456.6 Selecting previously unselected package libcurl4t64:amd64.
+#35 456.6 Preparing to unpack .../22-libcurl4t64_8.14.1-2+deb13u4_amd64.deb ...
+#35 456.6 Unpacking libcurl4t64:amd64 (8.14.1-2+deb13u4) ...
+#35 456.8 Selecting previously unselected package curl.
+#35 ...
+
+#34 [backend stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#34 456.8 debconf: unable to initialize frontend: Dialog
+#34 456.8 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#34 456.8 debconf: falling back to frontend: Readline
+#34 456.8 debconf: unable to initialize frontend: Readline
+#34 456.8 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#34 456.8 debconf: falling back to frontend: Teletype
+#34 458.3 Updating certificates in /etc/ssl/certs...
+#34 461.1 142 added, 0 removed; done.
+#34 ...
+
+#35 [ml-service stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#35 456.8 Preparing to unpack .../23-curl_8.14.1-2+deb13u4_amd64.deb ...
+#35 456.8 Unpacking curl (8.14.1-2+deb13u4) ...
+#35 456.9 Selecting previously unselected package libldap-common.
+#35 457.0 Preparing to unpack .../24-libldap-common_2.6.10+dfsg-1_all.deb ...
+#35 457.0 Unpacking libldap-common (2.6.10+dfsg-1) ...
+#35 457.1 Selecting previously unselected package libsasl2-modules:amd64.
+#35 457.1 Preparing to unpack .../25-libsasl2-modules_2.1.28+dfsg1-9_amd64.deb ...
+#35 457.1 Unpacking libsasl2-modules:amd64 (2.1.28+dfsg1-9) ...
+#35 457.3 Selecting previously unselected package publicsuffix.
+#35 457.3 Preparing to unpack .../26-publicsuffix_20250328.1952-0.1_all.deb ...
+#35 457.3 Unpacking publicsuffix (20250328.1952-0.1) ...
+#35 457.5 Setting up libkeyutils1:amd64 (1.6.3-6) ...
+#35 457.6 Setting up libbrotli1:amd64 (1.1.0-2+b7) ...
+#35 457.7 Setting up libsasl2-modules:amd64 (2.1.28+dfsg1-9) ...
+#35 457.8 Setting up libnghttp2-14:amd64 (1.64.0-1.1+deb13u1) ...
+#35 458.0 Setting up krb5-locales (1.21.3-5+deb13u1) ...
+#35 458.1 Setting up libcom-err2:amd64 (1.47.2-3+b11) ...
+#35 458.2 Setting up libldap-common (2.6.10+dfsg-1) ...
+#35 458.3 Setting up libkrb5support0:amd64 (1.21.3-5+deb13u1) ...
+#35 458.4 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#35 458.4 Setting up bash-completion (1:2.16.0-7) ...
+#35 458.6 Setting up libp11-kit0:amd64 (0.25.5-3) ...
+#35 458.6 Setting up libunistring5:amd64 (1.3-2) ...
+#35 458.7 Setting up libk5crypto3:amd64 (1.21.3-5+deb13u1) ...
+#35 458.7 Setting up libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#35 458.8 Setting up libnghttp3-9:amd64 (1.8.0-1) ...
+#35 458.8 Setting up libtasn1-6:amd64 (4.20.0-2+deb13u1) ...
+#35 458.9 Setting up libkrb5-3:amd64 (1.21.3-5+deb13u1) ...
+#35 458.9 Setting up libssh2-1t64:amd64 (1.11.1-1+deb13u1) ...
+#35 459.0 Setting up publicsuffix (20250328.1952-0.1) ...
+#35 459.0 Setting up libldap2:amd64 (2.6.10+dfsg-1) ...
+#35 459.1 Setting up libidn2-0:amd64 (2.3.8-2) ...
+#35 459.2 Setting up libgssapi-krb5-2:amd64 (1.21.3-5+deb13u1) ...
+#35 459.2 Setting up libgnutls30t64:amd64 (3.8.9-3+deb13u4) ...
+#35 459.3 Setting up libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+#35 459.4 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+#35 459.4 Setting up libcurl4t64:amd64 (8.14.1-2+deb13u4) ...
+#35 459.5 Setting up curl (8.14.1-2+deb13u4) ...
+#35 459.6 Processing triggers for libc-bin (2.41-12+deb13u3) ...
+#35 DONE 461.4s
+
+#34 [backend stage-1  3/10] RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+#34 461.6 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u5) ...
+#34 461.6 Setting up libcurl4:amd64 (7.88.1-10+deb12u15) ...
+#34 461.7 Setting up curl (7.88.1-10+deb12u15) ...
+#34 461.7 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#34 461.9 Processing triggers for ca-certificates (20230311+deb12u1) ...
+#34 461.9 Updating certificates in /etc/ssl/certs...
+#34 463.2 0 added, 0 removed; done.
+#34 463.2 Running hooks in /etc/ca-certificates/update.d...
+#34 463.2 done.
+#34 DONE 463.4s
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 ...
+
+#41 [backend stage-1  4/10] COPY --from=builder /app/node_modules ./node_modules
+#41 DONE 9.5s
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 ...
+
+#42 [backend stage-1  5/10] COPY package*.json ./
+#42 DONE 0.3s
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 ...
+
+#43 [backend stage-1  6/10] COPY server.js ./
+#43 DONE 0.2s
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 ...
+
+#44 [backend stage-1  7/10] COPY middleware ./middleware
+#44 DONE 0.3s
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 ...
+
+#45 [backend stage-1  8/10] COPY config.js ./
+#45 DONE 0.1s
+
+#46 [backend stage-1  9/10] COPY routes ./routes
+#46 DONE 0.1s
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 ...
+
+#47 [backend stage-1 10/10] RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
+#47 1.240 useradd: UID 1000 is not unique
+#47 ERROR: process "/bin/sh -c useradd -m -u 1000 appuser && chown -R appuser:appuser /app" did not complete successfully: exit code: 4
+
+#31 [ml-service builder 4/4] RUN pip install --user --no-cache-dir -r requirements.txt
+#31 CANCELED
+------
+ > [backend stage-1 10/10] RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app:
+1.240 useradd: UID 1000 is not unique
+------
+Dockerfile:19
+
+--------------------
+
+  17 |     
+
+  18 |     # Create non-root user
+
+  19 | >>> RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
+
+  20 |     USER appuser
+
+  21 |     
+
+--------------------
+
+target backend: failed to solve: process "/bin/sh -c useradd -m -u 1000 
+appuser && chown -R appuser:appuser /app" did not complete successfully: exit 
+code: 4
+
+
+
+View build details: 
+docker-desktop://dashboard/build/default/default/6f0a0emn5n4c9vepbxd2b9kwb
+

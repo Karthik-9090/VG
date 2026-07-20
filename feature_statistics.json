@@ -1,0 +1,243 @@
+{
+  "feature_engineering_timestamp": "2026-06-16T01:36:45.212113",
+  "input_row_count": 5979,
+  "output_row_count": 5907,
+  "rows_removed": 72,
+  "removal_reason": "LAG feature requirement (24 lags per city)",
+  "target_cities": [
+    "Bengaluru",
+    "Chennai",
+    "Hyderabad"
+  ],
+  "city_distribution": {
+    "Bengaluru": 1969,
+    "Chennai": 1969,
+    "Hyderabad": 1969
+  },
+  "features_created": {
+    "lag_features": [
+      "lag_1",
+      "lag_3",
+      "lag_6",
+      "lag_12",
+      "lag_24"
+    ],
+    "rolling_mean_features": [
+      "rolling_mean_6",
+      "rolling_mean_12",
+      "rolling_mean_24"
+    ],
+    "rolling_std_features": [
+      "rolling_std_6",
+      "rolling_std_12",
+      "rolling_std_24"
+    ],
+    "temporal_features": [
+      "hour",
+      "day_of_week",
+      "month",
+      "quarter",
+      "day_of_month"
+    ]
+  },
+  "total_engineered_features": 16,
+  "data_quality": {
+    "null_values_before_cleaning": 0,
+    "null_values_after_cleaning": 0,
+    "completeness_percentage": 100.0
+  },
+  "feature_statistics": {
+    "lag_1": {
+      "count": 5907,
+      "mean": 189.09920433384121,
+      "std": 94.46168966196204,
+      "min": 25.0,
+      "25%": 107.0,
+      "50%": 189.0,
+      "75%": 273.0,
+      "max": 349.0,
+      "null_count": 0,
+      "dtype": "float64"
+    },
+    "lag_3": {
+      "count": 5907,
+      "mean": 189.11003893685458,
+      "std": 94.48950876307373,
+      "min": 25.0,
+      "25%": 107.0,
+      "50%": 189.0,
+      "75%": 273.0,
+      "max": 349.0,
+      "null_count": 0,
+      "dtype": "float64"
+    },
+    "lag_6": {
+      "count": 5907,
+      "mean": 189.1848654139157,
+      "std": 94.4421159349485,
+      "min": 25.0,
+      "25%": 107.0,
+      "50%": 190.0,
+      "75%": 273.0,
+      "max": 349.0,
+      "null_count": 0,
+      "dtype": "float64"
+    },
+    "lag_12": {
+      "count": 5907,
+      "mean": 189.23480616218046,
+      "std": 94.45708421925299,
+      "min": 25.0,
+      "25%": 107.0,
+      "50%": 190.0,
+      "75%": 273.0,
+      "max": 349.0,
+      "null_count": 0,
+      "dtype": "float64"
+    },
+    "lag_24": {
+      "count": 5907,
+      "mean": 189.36499068901304,
+      "std": 94.4716240721954,
+      "min": 25.0,
+      "25%": 107.0,
+      "50%": 190.0,
+      "75%": 273.0,
+      "max": 349.0,
+      "null_count": 0,
+      "dtype": "float64"
+    },
+    "rolling_mean_6": {
+      "count": 5907,
+      "mean": 189.13286496247392,
+      "std": 38.55296998279207,
+      "min": 64.66666666666667,
+      "25%": 162.66666666666666,
+      "50%": 189.5,
+      "75%": 216.0,
+      "max": 316.1666666666667,
+      "null_count": 0,
+      "dtype": "float64"
+    },
+    "rolling_mean_12": {
+      "count": 5907,
+      "mean": 189.16844421872355,
+      "std": 26.9741645094772,
+      "min": 102.33333333333333,
+      "25%": 171.75,
+      "50%": 189.91666666666666,
+      "75%": 207.83333333333334,
+      "max": 310.0,
+      "null_count": 0,
+      "dtype": "float64"
+    },
+    "rolling_mean_24": {
+      "count": 5907,
+      "mean": 189.2259889396761,
+      "std": 19.054828397484513,
+      "min": 129.375,
+      "25%": 176.33333333333334,
+      "50%": 189.75,
+      "75%": 202.04166666666666,
+      "max": 282.75,
+      "null_count": 0,
+      "dtype": "float64"
+    },
+    "rolling_std_6": {
+      "count": 5907,
+      "mean": 91.8895169472382,
+      "std": 21.93924244428392,
+      "min": 14.634434279010838,
+      "25%": 77.85841851174516,
+      "50%": 93.66109117451046,
+      "75%": 107.29849305128755,
+      "max": 155.26836982034249,
+      "null_count": 0,
+      "dtype": "float64"
+    },
+    "rolling_std_12": {
+      "count": 5907,
+      "mean": 93.55268716267632,
+      "std": 13.663674105181052,
+      "min": 32.07944683268409,
+      "25%": 85.11907852410025,
+      "50%": 93.85590987349622,
+      "75%": 102.88672424976107,
+      "max": 138.7718860707613,
+      "null_count": 0,
+      "dtype": "float64"
+    },
+    "rolling_std_24": {
+      "count": 5907,
+      "mean": 94.08374593794935,
+      "std": 9.010172413712805,
+      "min": 63.96974771865556,
+      "25%": 87.92715095482086,
+      "50%": 93.99826547890927,
+      "75%": 100.29438101054258,
+      "max": 124.96503134065556,
+      "null_count": 0,
+      "dtype": "float64"
+    },
+    "hour": {
+      "count": 5907,
+      "mean": 0.0,
+      "std": 0.0,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.0,
+      "75%": 0.0,
+      "max": 0.0,
+      "null_count": 0,
+      "dtype": "int32"
+    },
+    "day_of_week": {
+      "count": 5907,
+      "mean": 3.0015236160487557,
+      "std": 1.9997877591183184,
+      "min": 0.0,
+      "25%": 1.0,
+      "50%": 3.0,
+      "75%": 5.0,
+      "max": 6.0,
+      "null_count": 0,
+      "dtype": "int32"
+    },
+    "month": {
+      "count": 5907,
+      "mean": 6.315388522092433,
+      "std": 3.4246628261723506,
+      "min": 1.0,
+      "25%": 3.0,
+      "50%": 6.0,
+      "75%": 9.0,
+      "max": 12.0,
+      "null_count": 0,
+      "dtype": "int32"
+    },
+    "quarter": {
+      "count": 5907,
+      "mean": 2.4377856780091416,
+      "std": 1.1134347389155748,
+      "min": 1.0,
+      "25%": 1.0,
+      "50%": 2.0,
+      "75%": 3.0,
+      "max": 4.0,
+      "null_count": 0,
+      "dtype": "int32"
+    },
+    "day_of_month": {
+      "count": 5907,
+      "mean": 15.70695784662265,
+      "std": 8.812873322928082,
+      "min": 1.0,
+      "25%": 8.0,
+      "50%": 16.0,
+      "75%": 23.0,
+      "max": 31.0,
+      "null_count": 0,
+      "dtype": "int32"
+    }
+  }
+}

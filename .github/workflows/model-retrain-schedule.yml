@@ -1,0 +1,49 @@
+name: ML Model Retraining Schedule
+
+on:
+  schedule:
+    - cron: '0 4 * * 1'
+  workflow_dispatch: {}
+
+jobs:
+  retrain:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: vayuguard
+          POSTGRES_USER: vayuguard_user
+          POSTGRES_PASSWORD: vayuguard_pass
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U vayuguard_user -d vayuguard"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      - name: Install ML service dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r ml-service/requirements.txt
+      - name: Wait for Postgres
+        run: |
+          for i in {1..15}; do
+            pg_isready -h localhost -p 5432 -U vayuguard_user -d vayuguard && break
+            sleep 2
+          done
+      - name: Run model training
+        env:
+          DB_HOST: localhost
+          DB_PORT: 5432
+          DB_NAME: vayuguard
+          DB_USER: vayuguard_user
+          DB_PASSWORD: vayuguard_pass
+        run: |
+          python ml-service/train.py

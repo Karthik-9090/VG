@@ -1,0 +1,35 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    postgresql-client \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY data-pipeline/requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir schedule==1.2.0
+
+# Copy application files
+COPY data-pipeline/ ./data-pipeline/
+COPY collector.py .
+COPY .env .
+
+# Create log and backup directories
+RUN mkdir -p data-pipeline/logs data-pipeline/backups
+
+# Health check - verify database connectivity and API
+HEALTHCHECK --interval=10m --timeout=30s --start-period=30s --retries=3 \
+    CMD curl -f https://api.waqi.info/feed/Chennai/?token=$(grep WAQI_API_KEY .env | cut -d= -f2) > /dev/null || exit 1
+
+# Set environment for production
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Run collector
+CMD ["python", "collector.py"]

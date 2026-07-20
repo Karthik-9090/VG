@@ -1,0 +1,131 @@
+﻿python.exe : C:\Users\Kandra Karthik\Downloads\VG\ml-service\show_training_data.py:19: 
+UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database 
+string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please 
+consider using SQLAlchemy.
+At line:1 char:55
++ ... l-service"; & "C:\Users\Kandra Karthik\anaconda3\python.exe" show_tra ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\Kandra...ing SQLAlchemy.:String) [ 
+   ], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  df_real = pd.read_sql('SELECT id, city, aqi, category, timestamp FROM aqi_data ORDER 
+BY timestamp', conn)
+================================================================================
+EXACT TRAINING DATASET INFORMATION
+================================================================================
+
+1. DATA SOURCE
+--------------------------------------------------------------------------------
+Location: PostgreSQL Database
+Host: localhost
+Port: 5432
+Database: vayuguard
+Table: aqi_data
+Connection: psycopg2
+
+2. REAL DATA RETRIEVED FROM DATABASE
+--------------------------------------------------------------------------------
+Total Real Records: 3 rows
+Date Range: 2026-06-15 20:54:41.500201 to 2026-06-15 20:54:41.500201
+Cities Covered: ['Bengaluru', 'Chennai', 'Hyderabad']
+AQI Range: 68-95
+
+3. REAL DATA (All rows):
+--------------------------------------------------------------------------------
+ id      city  aqi     category                  timestamp
+  1   Chennai   68 Satisfactory 2026-06-15 20:54:41.500201
+  2 Bengaluru   82 Satisfactory 2026-06-15 20:54:41.500201
+  3 Hyderabad   95 Satisfactory 2026-06-15 20:54:41.500201
+
+
+4. EXTENDED DATASET FOR TRAINING
+--------------------------------------------------------------------------------
+Extended Dataset Size: 2667 rows (hourly)
+Date Range: 2026-05-16 20:54:41.500201 to 2026-06-22 20:54:41.500201
+Duration: 37 days
+Cities: 3 cities (Bengaluru, Chennai, Hyderabad)
+
+EXTENDED DATASET - FIRST 10 ROWS:
+--------------------------------------------------------------------------------
+                 timestamp      city  aqi            category  hour  day_of_week  month
+2026-05-16 20:54:41.500201   Chennai   72        Satisfactory    20            5      5
+2026-05-16 20:54:41.500201 Bengaluru   88        Satisfactory    20            5      5
+2026-05-16 20:54:41.500201 Hyderabad  103 Moderately Polluted    20            5      5
+2026-05-16 21:54:41.500201   Chennai   63        Satisfactory    21            5      5
+2026-05-16 21:54:41.500201 Bengaluru   71        Satisfactory    21            5      5
+2026-05-16 21:54:41.500201 Hyderabad   89        Satisfactory    21            5      5
+2026-05-16 22:54:41.500201   Chennai   63        Satisfactory    22            5      5
+2026-05-16 22:54:41.500201 Bengaluru   74        Satisfactory    22            5      5
+2026-05-16 22:54:41.500201 Hyderabad   86        Satisfactory    22            5      5
+2026-05-16 23:54:41.500201   Chennai   53        Satisfactory    23            5      5
+
+EXTENDED DATASET - LAST 10 ROWS:
+--------------------------------------------------------------------------------
+                 timestamp      city  aqi            category  hour  day_of_week  month
+2026-06-22 17:54:41.500201 Hyderabad  111 Moderately Polluted    17            0      6
+2026-06-22 18:54:41.500201   Chennai  104 Moderately Polluted    18            0      6
+2026-06-22 18:54:41.500201 Bengaluru  110 Moderately Polluted    18            0      6
+2026-06-22 18:54:41.500201 Hyderabad  132 Moderately Polluted    18            0      6
+2026-06-22 19:54:41.500201   Chennai   93        Satisfactory    19            0      6
+2026-06-22 19:54:41.500201 Bengaluru  114 Moderately Polluted    19            0      6
+2026-06-22 19:54:41.500201 Hyderabad  131 Moderately Polluted    19            0      6
+2026-06-22 20:54:41.500201   Chennai   78        Satisfactory    20            0      6
+2026-06-22 20:54:41.500201 Bengaluru   85        Satisfactory    20            0      6
+2026-06-22 20:54:41.500201 Hyderabad  117 Moderately Polluted    20            0      6
+
+5. STATISTICS
+--------------------------------------------------------------------------------
+Total Hourly Records: 2667
+Records per City: 889 records/city
+Avg AQI: 86.9
+Min AQI: 46
+Max AQI: 156
+Std Dev: 17.48
+
+AQI Category Distribution:
+  Good                :    6 (  0.2%)
+  Satisfactory        : 2080 ( 78.0%)
+  Moderately Polluted :  581 ( 21.8%)
+  Heavily Polluted    :    0 (  0.0%)
+  Severely Polluted   :    0 (  0.0%)
+
+6. AFTER FEATURE ENGINEERING
+--------------------------------------------------------------------------------
+Features created: lag_1, lag_6, lag_24, rolling_mean_6, rolling_mean_24, hour, day_of_week, month
+Total Columns: 12
+Rows after feature engineering: 2,595 (after dropping 72 NaN rows)
+
+Train/Test split:
+  Training: 2,076 rows (80%)
+  Test: 519 rows (20%)
+
+7. TRAINING DATA - FIRST 5 ROWS WITH FEATURES
+--------------------------------------------------------------------------------
+                 timestamp      city  aqi  lag_1  lag_6  lag_24  rolling_mean_6  rolling_mean_24  hour  day_of_week  month
+2026-05-17 20:54:41.500201 Bengaluru   70   99.0   86.0    88.0       88.666667        84.208333    20            6      5
+2026-05-17 21:54:41.500201 Bengaluru   96   70.0   91.0    71.0       89.500000        85.250000    21            6      5
+2026-05-17 22:54:41.500201 Bengaluru   72   96.0   74.0    74.0       89.166667        85.166667    22            6      5
+2026-05-17 23:54:41.500201 Bengaluru   74   72.0   97.0    70.0       85.333333        85.333333    23            6      5
+2026-05-18 00:54:41.500201 Bengaluru   79   74.0  101.0    75.0       81.666667        85.500000     0            0      5
+
+8. TRAINING DATA - LAST 5 ROWS WITH FEATURES
+--------------------------------------------------------------------------------
+                 timestamp      city  aqi  lag_1  lag_6  lag_24  rolling_mean_6  rolling_mean_24  hour  day_of_week  month
+2026-06-22 16:54:41.500201 Hyderabad  106  105.0  121.0   104.0      108.500000       105.208333    16            0      6
+2026-06-22 17:54:41.500201 Hyderabad  111  106.0  100.0    96.0      110.333333       105.833333    17            0      6
+2026-06-22 18:54:41.500201 Hyderabad  132  111.0  105.0   125.0      114.833333       106.125000    18            0      6
+2026-06-22 19:54:41.500201 Hyderabad  131  132.0  121.0   116.0      116.500000       106.750000    19            0      6
+2026-06-22 20:54:41.500201 Hyderabad  117  131.0  114.0    95.0      117.000000       107.666667    20            0      6
+
+================================================================================
+DATASET SUMMARY
+================================================================================
+Real Data Source File: vayuguard PostgreSQL database -> aqi_data table
+Real Data Records: 3 rows (seed data from ingestion)
+Extended Dataset: 2,667 hourly records
+After Feature Engineering: 2,595 rows
+Training Samples: 2,076 rows (80%)
+Test Samples: 519 rows (20%)
+Features: 8 engineered features
+================================================================================

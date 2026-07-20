@@ -1,0 +1,44 @@
+name: E2E Smoke Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  e2e-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up Docker Compose
+        run: docker compose version || true
+
+      - name: Build and start services
+        run: |
+          docker compose up -d --build
+
+      - name: Wait for services
+        run: |
+          for i in {1..30}; do
+            if curl -sSf http://localhost:5000/api/health >/dev/null && curl -sSf http://localhost:8001/health >/dev/null && curl -sSf http://localhost:5173/ >/dev/null; then
+              echo "services up"; break
+            fi
+            sleep 5
+          done
+
+      - name: Run E2E smoke harness
+        run: |
+          npm ci --prefix frontend || true
+          npm ci --prefix backend || true
+          node backend/scripts/e2e_smoke.js
+
+      - name: Tear down
+        if: always()
+        run: docker compose down -v

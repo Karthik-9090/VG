@@ -1,0 +1,137 @@
+{
+  "timestamp": "2026-06-16T01:43:44.320564",
+  "feature_count": 16,
+  "features": {},
+  "Random Forest": [
+    {
+      "feature": "rolling_mean_6",
+      "importance": 0.2355744222565492
+    },
+    {
+      "feature": "lag_3",
+      "importance": 0.09845564828113479
+    },
+    {
+      "feature": "rolling_std_6",
+      "importance": 0.09633481950041549
+    },
+    {
+      "feature": "lag_1",
+      "importance": 0.09400985437669379
+    },
+    {
+      "feature": "rolling_std_12",
+      "importance": 0.06680076319890307
+    },
+    {
+      "feature": "lag_24",
+      "importance": 0.05767002372096199
+    },
+    {
+      "feature": "rolling_std_24",
+      "importance": 0.05584832391858997
+    },
+    {
+      "feature": "lag_12",
+      "importance": 0.05311099222531293
+    },
+    {
+      "feature": "lag_6",
+      "importance": 0.05189034695439483
+    },
+    {
+      "feature": "rolling_mean_24",
+      "importance": 0.04954233372591082
+    },
+    {
+      "feature": "rolling_mean_12",
+      "importance": 0.04770491919615236
+    },
+    {
+      "feature": "day_of_month",
+      "importance": 0.03975285405976028
+    },
+    {
+      "feature": "month",
+      "importance": 0.02415185911088006
+    },
+    {
+      "feature": "day_of_week",
+      "importance": 0.02233446515469382
+    },
+    {
+      "feature": "quarter",
+      "importance": 0.0068183743196465856
+    },
+    {
+      "feature": "hour",
+      "importance": 0.0
+    }
+  ],
+  "XGBoost": [
+    {
+      "feature": "rolling_mean_6",
+      "importance": 0.27531731128692627
+    },
+    {
+      "feature": "lag_3",
+      "importance": 0.09092410653829575
+    },
+    {
+      "feature": "lag_1",
+      "importance": 0.07521121203899384
+    },
+    {
+      "feature": "rolling_std_12",
+      "importance": 0.06436867266893387
+    },
+    {
+      "feature": "rolling_std_6",
+      "importance": 0.05758044868707657
+    },
+    {
+      "feature": "rolling_std_24",
+      "importance": 0.05656930059194565
+    },
+    {
+      "feature": "rolling_mean_24",
+      "importance": 0.0520709827542305
+    },
+    {
+      "feature": "rolling_mean_12",
+      "importance": 0.04996807500720024
+    },
+    {
+      "feature": "month",
+      "importance": 0.04876342788338661
+    },
+    {
+      "feature": "lag_24",
+      "importance": 0.048712458461523056
+    },
+    {
+      "feature": "lag_12",
+      "importance": 0.04795416072010994
+    },
+    {
+      "feature": "day_of_week",
+      "importance": 0.04627184197306633
+    },
+    {
+      "feature": "day_of_month",
+      "importance": 0.04424978047609329
+    },
+    {
+      "feature": "lag_6",
+      "importance": 0.042038172483444214
+    },
+    {
+      "feature": "hour",
+      "importance": 0.0
+    },
+    {
+      "feature": "quarter",
+      "importance": 0.0
+    }
+  ]
+}
